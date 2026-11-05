@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hệ thống Doanh nghiệp - Công ty Thiết bị Điện tử</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f9; color: #333; }
+        header { background: #0056b3; color: white; padding: 15px 30px; text-align: center; }
+        .container { padding: 20px; max-width: 1150px; margin: 0 auto; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        h3 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 5px; }
+        
+        /* Lưới 4 cột */
+        .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 15px; }
+        .product-card { border: 1px solid #ddd; border-radius: 6px; padding: 12px; text-align: center; background: #fff; }
+        .product-card img { width: 100%; height: 130px; object-fit: cover; border-radius: 4px; }
+        .product-card h4 { margin: 10px 0 5px; color: #0056b3; font-size: 15px; }
+        .price { color: #d9534f; font-weight: bold; margin-bottom: 10px; font-size: 14px; }
+        
+        /* Style Nút bấm & Form */
+        .btn { background: #28a745; color: white; border: none; padding: 7px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; text-decoration: none; display: inline-block; }
+        .btn:hover { background: #218838; }
+        .btn-download { background: #17a2b8; }
+        .btn-download:hover { background: #138496; }
+        
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input { width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        
+        ul.doc-list { list-style: none; padding: 0; }
+        ul.doc-list li { padding: 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>CÔNG TY TNHH THIẾT BỊ ĐIỆN TỬ & PHỤ KIỆN (Quy mô: 150 Nhân viên)</h2>
+        <p>Hệ thống tích hợp: Website Bán hàng & Quản lý Chia sẻ Tài liệu Nội bộ</p>
+    </header>
+
+    <div class="container">
+        <!-- PHẦN 1: DÀNH CHO KHÁCH HÀNG (8 SẢN PHẨM ĐỦ ANH CHUẨN) -->
+        <div class="card">
+            <h3>1. Cổng thông tin khách hàng (Xem danh mục sản phẩm & Gửi đơn hàng)</h3>
+            <p>Khách hàng có thể lựa chọn các thiết bị công nghệ đa dạng và gửi đơn hàng trực tuyến:</p>
+            
+            <div class="product-grid">
+                <!-- HÀNG 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400" alt="Laptop">
+                    <h4>Laptop Dell XPS 13</h4>
+                    <div class="price">28.500.000 VNĐ</div>
+                    <button class="btn" onclick="openOrder('Laptop Dell XPS 13')">🛒 Đặt mua</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400" alt="Bàn phím">
+                    <h4>Bàn phím cơ không dây</h4>
+                    <div class="price">1.200.000 VNĐ</div>
+                    <button class="btn" onclick="openOrder('Bàn phím cơ không dây')">🛒 Đặt mua</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=400" alt="Chuột">
+                    <h4>Chuột Logitech MX</h4>
+                    <div class="price">850.000 VNĐ</div>
+                    <button class="btn" onclick="openOrder('Chuột Logitech MX')">🛒 Đặt mua</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400" alt="Màn hình">
+                    <h4>Màn hình LG UltraWide</h4>
+                    <div class="price">6.500.000 VNĐ</div>
+                    <button class="btn" onclick="openOrder('Màn hình LG UltraWide')">🛒 Đặt mua</button>
+                </div>
+
+                <!-- HÀNG 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" alt="Tai nghe">
+                    <h4>Tai nghe Sony Chống Ồn</h4>
+                    <div class="price">4.200.000 VNĐ</div>
+                    <button class="btn" onclick="openOrder('Tai nghe Sony Chống Ồn')">🛒 Đặt mua</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400" alt="Ổ cứng">
+                    <h4>Ổ cứng SSD Samsung 1TB</h4>
+                    <div class="price">2.300.000 VNĐ</div>
+                    <button class="btn" onclick="openOrder('Ổ cứng SSD Samsung 1TB')">🛒 Đặt mua</button>
+                </div>
+                <div class="product-card">
+                    <!-- Link ảnh Sạc dự phòng chuẩn -->
+                    <img src="https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400" alt="Sạc dự phòng">
+                    <h4>Sạc dự phòng Anker 20k</h4>
+                    <div class="price">950.000 VNĐ</div>
+                    <button class="btn" onclick="openOrder('Sạc dự phòng Anker 20k')">🛒 Đặt mua</button>
+                </div>
+                <div class="product-card">
+                    <!-- Link ảnh Webcam chuẩn -->
+                    <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400" alt="Webcam">
+                    <h4>Webcam Logitech 4K Pro</h4>
+                    <div class="price">3.100.000 VNĐ</div>
+                    <button class="btn" onclick="openOrder('Webcam Logitech 4K Pro')">🛒 Đặt mua</button>
+                </div>
+            </div>
+
+            <!-- Form đặt hàng -->
+            <div id="orderForm" style="display:none; margin-top:20px; background:#f8f9fa; padding:15px; border-radius:6px; border:1px solid #0056b3;">
+                <h4 style="margin-top:0; color:#0056b3;">GỬI ĐƠN HÀNG TRỰC TUYẾN</h4>
+                <form onsubmit="submitOrder(event)">
+                    <div class="form-group">
+                        <label>Sản phẩm đã chọn:</label>
+                        <input type="text" id="selectedProduct" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Họ và tên khách hàng:</label>
+                        <input type="text" placeholder="Nhập họ tên..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại liên hệ:</label>
+                        <input type="tel" placeholder="Nhập số điện thoại..." required>
+                    </div>
+                    <button type="submit" class="btn">🚀 Xác nhận gửi đơn hàng</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- PHẦN 2: DÀNH CHO NHÂN VIÊN -->
+        <div class="card">
+            <h3>2. Hệ thống nội bộ cho 150 Nhân viên (Quản lý & Chia sẻ tài liệu)</h3>
+            <p>Nhân viên truy cập để quản lý dữ liệu và chia sẻ tài liệu nghiệp vụ nội bộ:</p>
+            <ul class="doc-list">
+                <li>
+                    <span>📁 <b>Phòng Kinh doanh:</b> Bang_bao_gia_thiet_bi_2026.pdf</span>
+                    <button class="btn btn-download" onclick="alert('Đã tải tài liệu Kinh doanh thành công!')">📥 Tải về</button>
+                </li>
+                <li>
+                    <span>📁 <b>Phòng Kỹ thuật:</b> Tai_lieu_sua_chua_bao_hanh.docx</span>
+                    <button class="btn btn-download" onclick="alert('Đã tải tài liệu Kỹ thuật thành công!')">📥 Tải về</button>
+                </li>
+                <li>
+                    <span>📁 <b>Phòng Nhân sự:</b> Quy_che_lam_viec_150_nhan_vien.pdf</span>
+                    <button class="btn btn-download" onclick="alert('Đã tải tài liệu Nhân sự thành công!')">📥 Tải về</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function openOrder(productName) {
+            document.getElementById('orderForm').style.display = 'block';
+            document.getElementById('selectedProduct').value = productName;
+            document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitOrder(event) {
+            event.preventDefault();
+            alert('🎉 Đơn hàng của bạn đã gửi thành công vào hệ thống dữ liệu!');
+            document.getElementById('orderForm').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
