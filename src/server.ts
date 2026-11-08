@@ -12,6 +12,8 @@ const app = express();
 const preferredPort = Number(process.env.PORT || 3006);
 const rootDir = process.cwd();
 const uploadDir = path.join(rootDir, 'uploads');
+const databaseUrl = process.env.DATABASE_URL || '';
+const useSslForRemoteDb = !!databaseUrl && !databaseUrl.includes('localhost') && !databaseUrl.includes('127.0.0.1');
 
 function startServer(port: number) {
   const server = app.listen(port, () => {
@@ -33,9 +35,10 @@ function startServer(port: number) {
 
 fs.mkdirSync(uploadDir, { recursive: true });
 
-const db = process.env.DATABASE_URL
+const db = databaseUrl
   ? new Pool({
-      connectionString: process.env.DATABASE_URL,
+      connectionString: databaseUrl,
+      ssl: useSslForRemoteDb ? { rejectUnauthorized: false } : false,
     })
   : null;
 
